@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-
+ini_set('swoole.use_shortname', 'Off');
 ini_set('display_errors', 'on');
 ini_set('display_startup_errors', 'on');
 ini_set('memory_limit', '1G');
