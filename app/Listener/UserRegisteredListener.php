@@ -23,6 +23,7 @@ class UserRegisteredListener implements ListenerInterface
         // 事件触发后该监听器要执行的代码写在这里，比如该示例下的发送用户注册成功短信等
         // 直接访问 $event 的 user 属性获得事件触发时传递的参数值
         // $event->user;
-        echo 'Event Triged'.json_encode($event->user).PHP_EOL;
+        echo 'Event Triged and processed....'.PHP_EOL;
+        echo json_encode($event->user).PHP_EOL;
     }
 }

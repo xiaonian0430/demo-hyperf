@@ -27,17 +27,17 @@ CREATE TABLE `hf_user`(
 class User extends Model
 {
     use Snowflake;
-    protected $connection = 'default';
-    protected $primaryKey = 'id';
-    protected $keyType = 'string';
-    protected $timestamps = false;
-    protected $incrementing = false;
+    public $connection = 'default';
+    public $primaryKey = 'id';
+    public $keyType = 'string';
+    public $timestamps = false;
+    public $incrementing = false;
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'user';
+    protected $table = 'hf_user';
 
     /**
      * The attributes that are mass assignable.
