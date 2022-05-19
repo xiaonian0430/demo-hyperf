@@ -2,6 +2,7 @@
 /**
  * 定义一个事件
  */
+declare(strict_types=1);
 namespace App\Event;
 
 class OrderCreatedAfter

@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace App\Listener;
 use App\Event\OrderCreatedBefore;
 use App\Event\OrderCreatedAfter;

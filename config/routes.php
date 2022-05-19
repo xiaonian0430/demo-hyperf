@@ -2,18 +2,28 @@
 
 declare(strict_types=1);
 /**
- * This file is part of Hyperf.
- *
- * @link     https://www.hyperf.io
- * @document https://hyperf.wiki
- * @contact  group@hyperf.io
- * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ * 路由配置
  */
 use Hyperf\HttpServer\Router\Router;
-
-Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@index');
-Router::addRoute(['GET', 'POST', 'HEAD'], '/event/index', 'App\Controller\EventController@index');
-Router::addRoute(['GET', 'POST', 'HEAD'], '/order/index', 'App\Controller\OrderController@index');
+Router::addGroup('/event/',function (){
+    Router::get('index','App\Controller\EventController@index');
+    Router::post('index','App\Controller\EventController@index');
+});
+Router::addGroup('/order/',function (){
+    Router::get('index','App\Controller\OrderController@index');
+    Router::post('index','App\Controller\OrderController@index');
+});
+Router::addGroup('/index/',function (){
+    Router::get('index','App\Controller\IndexController@index');
+    Router::post('index','App\Controller\IndexController@index');
+});
+Router::addGroup('/rpc/',function (){
+    Router::get('index','App\Controller\RpcController@index');
+    Router::post('index','App\Controller\RpcController@index');
+});
+Router::get('/', function(){
+    return 'error';
+});
 Router::get('/favicon.ico', function () {
     return '';
 });

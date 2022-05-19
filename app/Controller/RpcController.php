@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 /**
- * 事件
+ * json rpc
  */
-declare(strict_types=1);
 namespace App\Controller;
-use App\Service\UserService;
 use Hyperf\HttpServer\Contract\RequestInterface;
-class EventController extends AbstractController
+use App\JsonRpc\CalculatorServiceInterface;
+use Hyperf\Utils\ApplicationContext;
+class RpcController extends AbstractController
 {
     public function index(RequestInterface $request)
     {
         $user = $request->input('user', 'Hyperf');
         $method = $request->getMethod();
-        $userService=new UserService(0);
-        $result=$userService->register();
+        $client = ApplicationContext::getContainer()->get(CalculatorServiceInterface::class);
+        $result = $client->sum(12, 18);
         return [
             'method' => $method,
             'result' => $result,
