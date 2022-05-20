@@ -13,5 +13,5 @@ use Hyperf\JsonRpc\JsonRpcPoolTransporter;
 use Hyperf\JsonRpc\JsonRpcTransporter;
 return [
     JsonRpcTransporter::class => JsonRpcPoolTransporter::class,
-    CalculatorService::class => App\JsonRpc\CalculatorServiceInterface::class,
+    CalculatorService::class => \App\JsonRpc\CalculatorServiceInterface::class,
 ];
