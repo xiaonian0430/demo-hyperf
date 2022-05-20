@@ -14,7 +14,7 @@ class RpcController extends AbstractController
     {
         $user = $request->input('user', 'Hyperf');
         $method = $request->getMethod();
-        $client = ApplicationContext::getContainer()->get(\App\JsonRpc\CalculatorServiceInterface::class);
+        $client = ApplicationContext::getContainer()->get(CalculatorServiceInterface::class);
         $result = $client->add(12, 18);
         return [
             'method' => $method,
