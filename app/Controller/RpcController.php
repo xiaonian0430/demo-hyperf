@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 use Hyperf\HttpServer\Contract\RequestInterface;
-use App\JsonRpc\CalculatorServiceInterface;
+use App\JsonRpc\CalculatorServiceXInterface;
 use Hyperf\Utils\ApplicationContext;
 class RpcController extends AbstractController
 {
@@ -14,7 +14,7 @@ class RpcController extends AbstractController
     {
         $user = $request->input('user', 'Hyperf');
         $method = $request->getMethod();
-        $client = ApplicationContext::getContainer()->get(CalculatorServiceInterface::class);
+        $client = ApplicationContext::getContainer()->get(CalculatorServiceXInterface::class);
         $result = $client->add(12, 18);
         return [
             'method' => $method,
