@@ -9,5 +9,9 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use Hyperf\JsonRpc\JsonRpcPoolTransporter;
+use Hyperf\JsonRpc\JsonRpcTransporter;
 return [
+    JsonRpcTransporter::class => JsonRpcPoolTransporter::class,
+    CalculatorService::class => App\JsonRpc\CalculatorServiceInterface::class,
 ];
